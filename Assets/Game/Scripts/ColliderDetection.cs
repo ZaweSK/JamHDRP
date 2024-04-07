@@ -30,13 +30,22 @@ public class ColliderDetection : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        var zoneConfig = _zoneConfigs.FirstOrDefault(zoneConfig => other.CompareTag(zoneConfig.Id));
-        if (zoneConfig == null) {
-            Debug.LogError($"ZoneConfig not found for {other.name}");
+        
+        if (other.CompareTag("phoneZone")) {
+            Guide.Instance.ShowGuide("The phone must be on the stage. I must get to it before I shit my pants", 1f, 0f);
+            
             return;
         }
         
+        var zoneConfig = _zoneConfigs.FirstOrDefault(zoneConfig => other.CompareTag(zoneConfig.Id));
+        
         if (_alreadyTriggered.Contains(zoneConfig.Id)) {
+            return;
+        }
+        
+
+        if (zoneConfig == null) {
+            Debug.LogError($"ZoneConfig not found for {other.name}");
             return;
         }
         
