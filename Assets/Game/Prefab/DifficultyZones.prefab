@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 707002327735475584}
   m_Layer: 0
   m_Name: PhoneZone
-  m_TagString: zone4
+  m_TagString: phoneZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

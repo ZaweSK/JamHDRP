@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5219582854436360569}
   - component: {fileID: 8911243419432941402}
   m_Layer: 0
-  m_Name: Guide
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 398571495142851873}
-  _countDownText: {fileID: 0}
+  _countDownText: {fileID: 951168353688739597}
 --- !u!1 &3457457009907760010
 GameObject:
   m_ObjectHideFlags: 0

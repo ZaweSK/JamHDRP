@@ -2083,18 +2083,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6336262926024761894, guid: c622d0c0d32ed4c75b48e17655b1bbcc, type: 3}
---- !u!114 &2074151343 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 951168353688739597, guid: 735884475b58d4c5aadf36221303a47f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6185940943363473134}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4207293744092445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6105705242187901136, guid: b183e7ca0e1074d10b32669713df8ca0,
@@ -2231,11 +2219,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DifficultyZones
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870097141137275118, guid: 76dbf2c2f63e54a57a17f94c4d1d9e0e,
-        type: 3}
-      propertyPath: m_TagString
-      value: phoneZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2454,11 +2437,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3105591133770550398, guid: 735884475b58d4c5aadf36221303a47f,
-        type: 3}
-      propertyPath: m_Name
-      value: UI
-      objectReference: {fileID: 0}
     - target: {fileID: 7694224878268853626, guid: 735884475b58d4c5aadf36221303a47f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2514,11 +2492,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ------  UI ---------
       objectReference: {fileID: 0}
-    - target: {fileID: 8911243419432941402, guid: 735884475b58d4c5aadf36221303a47f,
-        type: 3}
-      propertyPath: _countDownText
-      value: 
-      objectReference: {fileID: 2074151343}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
