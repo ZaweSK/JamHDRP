@@ -18,10 +18,10 @@ MonoBehaviour:
   ZmenTlacitkaKedStojis: 0
   ZmenTlacitkaPoCase: 0
   TocenieHlavy: 1
-  AkoMocTaToci: 0.05
+  AkoMocTaToci: 0.03
   DlzkaJednohoTocenia: 1
   ZanasanieDoStrany: 1
-  AkoMocTaZanasa: 0.8
+  AkoMocTaZanasa: 0.2
   DlzkaJednehoZanosuDoStrany: 2
   Drunkenness: 0.1
   Blurr: 0.3

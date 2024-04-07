@@ -52,19 +52,18 @@ public class Movement : MonoBehaviour  {
         var inputHorizontal = Input.GetAxis("Horizontal"); // Dolava / doprava
         var inputVertical = Input.GetAxis("Vertical");
 
-        // if (Game.Instance.ZmenTlacitkaKedStojis) {
-        //     if (inputVertical == 0 && inputHorizontal == 0) {
-        //         _readyToSwitch = true;
-        //     }
-        //     else {
-        //         if (_readyToSwitch) {
-        //             var variant = Random.Range(5, 9);
-        //             _currentKeysVariant = variant;
-        //             Debug.Log($"XXX SWITCH TO {variant}");
-        //             _readyToSwitch = false;
-        //         }
-        //     }
-        // }
+        if (Game.Instance.ZmenTlacitkaKedStojis) {
+            if (inputVertical == 0 && inputHorizontal == 0) {
+                _readyToSwitch = true;
+            }
+            else {
+                if (_readyToSwitch) {
+                    var variant = Random.Range(5, 9);
+                    _currentKeysVariant = variant;
+                    _readyToSwitch = false;
+                }
+            }
+        }
 
         if (Game.Instance.ZmenTlacitkaPoCase > 0) {
             _switchMappingCurrentDuration += Time.deltaTime;
@@ -79,11 +78,11 @@ public class Movement : MonoBehaviour  {
        
         
         if (Game.Instance.ZanasanieDoStrany) {
-            if (inputVertical == 0) {
+            if (inputVertical == 0 && inputHorizontal == 0) {
                 _currentDuration = 0f;
             }
         
-            if (inputVertical != 0) {
+            if (inputVertical != 0 || inputHorizontal != 0) {
 
                 if (_phase) {
                     _currentDuration += Time.deltaTime;
@@ -96,8 +95,9 @@ public class Movement : MonoBehaviour  {
                 var normalizedDuration = _currentDuration / Game.Instance.DlzkaJednehoZanosuDoStrany;
                 
                 float adjustedValue = Mathf.Lerp(-Game.Instance.AkoMocTaZanasa, Game.Instance.AkoMocTaZanasa, normalizedDuration);
-                inputHorizontal = Input.GetAxis("Horizontal") + adjustedValue;
-            
+                inputHorizontal = Input.GetAxis("Horizontal") +adjustedValue;
+                inputVertical = Input.GetAxis("Vertical") + adjustedValue;
+                
                 
                 if (_phase && normalizedDuration >= 1f) {
                     _phase = false;
