@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f33795a0e184ffba085d60dd6509471, type: 3}
+  m_Name: Zone1
+  m_EditorClassIdentifier: 
+  Id: zone1
+  ZmenTlacitka: 0
+  VariantZmenyTlacitok: 0
+  ZmenTlacitkaKedStojis: 0
+  ZmenTlacitkaPoCase: 0
+  TocenieHlavy: 1
+  AkoMocTaToci: 0.0001
+  DlzkaJednohoTocenia: 1
+  ZanasanieDoStrany: 1
+  AkoMocTaZanasa: 0.1
+  DlzkaJednehoZanosuDoStrany: 3
+  Drunkenness: 0.1
+  Blurr: 0.3
