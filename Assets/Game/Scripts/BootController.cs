@@ -11,6 +11,9 @@ public class BootController : MonoBehaviour {
     [SerializeField] 
     private TextMeshProUGUI _text;
     
+    [SerializeField]
+    private AudioListener _menuAudioListener;
+    
 
     [SerializeField] 
     private AudioSource _menuMusic;
@@ -33,6 +36,7 @@ public class BootController : MonoBehaviour {
         SceneManager.UnloadSceneAsync(GameSceneName);
         _viewObject.SetActive(true);
         _sceneLoaded = false;
+        _menuAudioListener.enabled = true;
         
         HideText();
         
@@ -80,9 +84,9 @@ public class BootController : MonoBehaviour {
             _sceneLoaded = true;
             _menuMusic.Stop();
             
-            if (_loadingOperation != null)
-            {
+            if (_loadingOperation != null) {
                 _loadingOperation.allowSceneActivation = true; 
+                _menuAudioListener.enabled = false;
                 
             }
         }
