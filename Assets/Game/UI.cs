@@ -41,6 +41,8 @@ public class UI : MonoBehaviour {
         _delayTotalDuration = delay;
         
         _animate = true;
+        
+        Debug.Log($"XXX SHOW {text}");
     }
 
     private void Start() {
