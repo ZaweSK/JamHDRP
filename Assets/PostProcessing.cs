@@ -27,6 +27,10 @@ public class PostProcessing : MonoBehaviour {
         if (_volume.profile.TryGet<LensDistortion>(out var lensDistortion)) {
             _lensDistortion = lensDistortion;
         }
+        
+        if (_volume.profile.TryGet<ColorAdjustments>(out var colorAdjustments)) {
+            _colorAdjustments = colorAdjustments;
+        }
     }
 
     [SerializeField]
@@ -34,6 +38,7 @@ public class PostProcessing : MonoBehaviour {
 
     private ChromaticAberration _chromaticAberration;
     private LensDistortion _lensDistortion;
+    private ColorAdjustments _colorAdjustments;
     
     public void ChromaticAberration(float value) {
         _chromaticAberration.intensity.value = value;
@@ -41,6 +46,10 @@ public class PostProcessing : MonoBehaviour {
     
     public void LensDistortion(float value) {
         _lensDistortion.intensity.value = value;
+    }
+    
+    public void HueAdjustments(float value) {
+        _colorAdjustments.hueShift.value = value;
     }
     
     public void ResetToDefault() {

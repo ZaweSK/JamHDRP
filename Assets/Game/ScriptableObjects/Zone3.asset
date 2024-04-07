@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Zone3
   m_EditorClassIdentifier: 
   Id: zone3
-  ZmenTlacitka: 0
-  VariantZmenyTlacitok: 2
-  ZmenTlacitkaKedStojis: 1
+  ZmenTlacitka: 1
+  VariantZmenyTlacitok: 7
+  ZmenTlacitkaKedStojis: 0
   ZmenTlacitkaPoCase: 0
   TocenieHlavy: 1
-  AkoMocTaToci: 0.15
-  DlzkaJednohoTocenia: 1.5
+  AkoMocTaToci: 0.2
+  DlzkaJednohoTocenia: 3
   ZanasanieDoStrany: 1
-  AkoMocTaZanasa: 0.2
+  AkoMocTaZanasa: 0.4
   DlzkaJednehoZanosuDoStrany: 2
   Drunkenness: 0.1
   Blurr: 0.3

@@ -802,6 +802,7 @@ Transform:
   - {fileID: 2089687671}
   - {fileID: 377145561}
   - {fileID: 916085835}
+  - {fileID: 378590780}
   m_Father: {fileID: 872387223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377145560
@@ -843,6 +844,59 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377145560}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &378590779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378590780}
+  - component: {fileID: 378590781}
+  m_Layer: 0
+  m_Name: Zone4
+  m_TagString: zone4
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378590780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378590779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -64.2, y: 0, z: -145.4}
+  m_LocalScale: {x: 145.71, y: 67.3, z: -119.7}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 375176469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &378590781
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378590779}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1049,7 +1103,7 @@ MonoBehaviour:
   ZmenTlacitka: 1
   VariantZmenyTlacitok: 0
   ZmenTlacitkaKedStojis: 0
-  ZmenTlacitkaPoCase: 0
+  ZmenTlacitkaPoCase: 10
   TocenieHlavy: 1
   AkoMocTaToci: 0.2
   DlzkaJednohoTocenia: 1
@@ -1811,8 +1865,8 @@ Transform:
   m_GameObject: {fileID: 916085834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.2, y: 0, z: -61.5}
-  m_LocalScale: {x: 145.71, y: 67.3, z: -49.69}
+  m_LocalPosition: {x: -64.2, y: 0, z: -68.6}
+  m_LocalScale: {x: 145.71, y: 67.3, z: -43.99}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 375176469}
@@ -2336,6 +2390,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c55cc3b4af834b6faf684581814b99a, type: 2}
   - {fileID: 11400000, guid: 2f005fe9bec554b329cdbc0d22ea3936, type: 2}
   - {fileID: 11400000, guid: a597f762955904faca067f45e8f97721, type: 2}
+  - {fileID: 11400000, guid: cce24ad84b971420f94163566ec354da, type: 2}
   _drugHitAudioSource: {fileID: 1026899782}
 --- !u!82 &1026899782
 AudioSource:

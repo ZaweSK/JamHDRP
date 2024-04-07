@@ -20,6 +20,8 @@ public class ColliderDetection : MonoBehaviour {
 
     private Tween? _lensDistortionTween;
     
+    private Tween? _hueShiftTween;
+    
     private readonly List<string> _alreadyTriggered = new List<string>();
     private void OnDestroy() {
         
@@ -48,12 +50,19 @@ public class ColliderDetection : MonoBehaviour {
         
         if (zoneConfig.Id == "zone2") {
             Guide.Instance.ShowGuide("This is crazy, I must get to the stage", 1f, 0f);
+            PostProcessing.Instance.ChromaticAberration(0.6f);
         }
         
         if (zoneConfig.Id == "zone3") {
             Guide.Instance.ShowGuide("My face is melting !", 1f, 0f);
+            PostProcessing.Instance.ChromaticAberration(0.9f);
         }
         
+        
+        if (zoneConfig.Id == "zone4") {
+            Guide.Instance.ShowGuide("My phone must be somewhere near the stage", 1f, 0f);
+            PostProcessing.Instance.ChromaticAberration(1f);
+        }
         
         
         
@@ -71,15 +80,39 @@ public class ColliderDetection : MonoBehaviour {
                 if (zoneConfig.Id == "zone3") {
                     
                     _lensDistortionTween = DOTween.To(() => -0.6f, animatedValue => {
-                            Debug.Log($"XXX ANIMATE");
                             PostProcessing.Instance.LensDistortion(animatedValue);
-                        }, 0.6f, 3f)
+                        }, 0.6f, 2f)
                         .SetLoops(-1, LoopType.Yoyo)
                         .SetEase(Ease.Linear)
                         .OnComplete(() => {
                         });
                     
                 }
+                
+                if (zoneConfig.Id == "zone4") {
+                    _lensDistortionTween?.Kill();
+                    _lensDistortionTween = null;
+                    
+                    _lensDistortionTween = DOTween.To(() => -0.75f, animatedValue => {
+                            PostProcessing.Instance.LensDistortion(animatedValue);
+                        }, 0.76f, 5f)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() => {
+                        });
+                    
+                    
+                    _hueShiftTween = DOTween.To(() => 0f, animatedValue => {
+                            PostProcessing.Instance.HueAdjustments(animatedValue);
+                        }, -200f, 8f)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() => {
+                        });
+                    
+                }
+                
+                
             })
             .OnKill(() => {
                 _tween = null;

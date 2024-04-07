@@ -7,6 +7,7 @@ TagManager:
   - zone1
   - zone2
   - zone3
+  - zone4
   layers:
   - Default
   - TransparentFX
