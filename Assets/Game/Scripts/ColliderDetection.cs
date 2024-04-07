@@ -29,11 +29,35 @@ public class ColliderDetection : MonoBehaviour {
         _tween = null;
     }
 
+    private int _time = 60;
+
+    private void RestartGame() {
+        BootController.Instance.RestartGame();
+    }
+
+    IEnumerator OneSecondTimer() {
+        UI.Instance.ShowCountDown(_time);
+        yield return new WaitForSeconds(1f);
+        _time--;
+        
+        if (_time <= 0) {
+            UI.Instance.ShowCountDown(_time);
+           RestartGame();
+        }
+        else {
+            StartCoroutine(OneSecondTimer());
+        }
+        
+    }
     private void OnTriggerEnter(Collider other) {
         
         if (other.CompareTag("phoneZone")) {
-            Guide.Instance.ShowGuide("The phone must be on the stage. I must get to it before I shit my pants", 1f, 0f);
+            Debug.Log($"XXX phoneZone");
             
+            UI.Instance.ShowGuide("The phone is on stage. I must get to it before I shit my pants", 1f, 0f);
+            // UI.Instance.ShowGuide("Hurry ! The poop is near", 1f, 10f);
+            // UI.Instance.ShowGuide("Sweet lord in heaven", 1f, 30);
+            StartCoroutine(OneSecondTimer());
             return;
         }
         
@@ -54,22 +78,22 @@ public class ColliderDetection : MonoBehaviour {
         _drugHitAudioSource.Play();
         
         if (zoneConfig.Id == "zone1") {
-            Guide.Instance.ShowGuide("Ouu, something is happening...", 1f, 0f);
+            UI.Instance.ShowGuide("Ouu, something is happening...", 1f, 0f);
         }
         
         if (zoneConfig.Id == "zone2") {
-            Guide.Instance.ShowGuide("This is crazy, I must get to the stage", 1f, 0f);
+            UI.Instance.ShowGuide("This is crazy, I must get to the stage", 1f, 0f);
             PostProcessing.Instance.ChromaticAberration(0.6f);
         }
         
         if (zoneConfig.Id == "zone3") {
-            Guide.Instance.ShowGuide("My face is melting !", 1f, 0f);
+            UI.Instance.ShowGuide("My face is melting !", 1f, 0f);
             PostProcessing.Instance.ChromaticAberration(0.9f);
         }
         
         
         if (zoneConfig.Id == "zone4") {
-            Guide.Instance.ShowGuide("My phone must be somewhere near the stage", 1f, 0f);
+            UI.Instance.ShowGuide("My phone must be somewhere near the stage", 1f, 0f);
             PostProcessing.Instance.ChromaticAberration(1f);
         }
         

@@ -42,6 +42,9 @@ public class BootController : MonoBehaviour {
         
         _opacityTimer = 0;
         _timer = 0;
+        
+        _loadingOperation = SceneManager.LoadSceneAsync(GameSceneName, LoadSceneMode.Additive);
+        _loadingOperation.allowSceneActivation = false; 
     }
 
     private bool _sceneLoaded;
@@ -58,8 +61,9 @@ public class BootController : MonoBehaviour {
     }
     
     private void Update() {
-        if (_loadingOperation.progress >= 1) {
+        if (_loadingOperation != null && _loadingOperation.progress >= 1) {
             _viewObject.SetActive(false);
+            _loadingOperation = null;
         }
         
         _timer += Time.deltaTime;

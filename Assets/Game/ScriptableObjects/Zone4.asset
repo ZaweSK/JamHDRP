@@ -16,9 +16,9 @@ MonoBehaviour:
   ZmenTlacitka: 1
   VariantZmenyTlacitok: 0
   ZmenTlacitkaKedStojis: 0
-  ZmenTlacitkaPoCase: 4
+  ZmenTlacitkaPoCase: 8
   TocenieHlavy: 1
-  AkoMocTaToci: 0.15
+  AkoMocTaToci: 0.1
   DlzkaJednohoTocenia: 3
   ZanasanieDoStrany: 1
   AkoMocTaZanasa: 0.3

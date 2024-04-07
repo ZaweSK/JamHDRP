@@ -71,7 +71,6 @@ public class Movement : MonoBehaviour  {
                 var variant = Random.Range(5, 9);
                 _currentKeysVariant = variant;
                 
-                // Debug.Log($"XXX {}");
                 _switchMappingCurrentDuration = 0f;
             }
         }

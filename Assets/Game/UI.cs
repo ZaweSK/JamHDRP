@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Guide : MonoBehaviour {
+public class UI : MonoBehaviour {
 
     [SerializeField] 
     private TextMeshProUGUI _text;
+    
+    [SerializeField]
+    private TextMeshProUGUI _countDownText;
 
     private void HideText() {
         var color = _text.color;
@@ -19,6 +22,11 @@ public class Guide : MonoBehaviour {
         var color = _text.color;
         var adjustedColor = new Color(color.r, color.g, color.b, alpha);
         _text.color = adjustedColor;
+    }
+    
+    public void ShowCountDown(int number) {
+        _countDownText.text = number.ToString();
+        _countDownText.gameObject.SetActive(true);
     }
     
     public void ShowGuide(string text, float duration, float delay) {
@@ -37,6 +45,7 @@ public class Guide : MonoBehaviour {
 
     private void Start() {
         HideText();
+        _countDownText.gameObject.SetActive(false);
     }
 
     private float _fadeInDuration;
@@ -78,7 +87,7 @@ public class Guide : MonoBehaviour {
         }
     }
     
-    private static Guide _instance;
+    private static UI _instance;
       
     private void Awake() {
         if (_instance == null) {
@@ -89,5 +98,5 @@ public class Guide : MonoBehaviour {
         }
     }
 
-    public static Guide Instance => _instance;
+    public static UI Instance => _instance;
 }

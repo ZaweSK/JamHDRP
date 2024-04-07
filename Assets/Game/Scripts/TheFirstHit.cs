@@ -13,7 +13,7 @@ public class TheFirstHit : MonoBehaviour {
     void Start() {
         Game.Instance.ApplyZoneConfig(_config);
         
-        Guide.Instance.ShowGuide("This is bad. I need to find my phone", 1f, 1.5f);
+        UI.Instance.ShowGuide("This is bad. I need to find my phone", 1f, 1.5f);
     }
     
     void Update() {
