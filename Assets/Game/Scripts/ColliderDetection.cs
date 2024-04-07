@@ -38,17 +38,21 @@ public class ColliderDetection : MonoBehaviour {
     private bool _finalCloseDown = false;
 
     IEnumerator OneSecondTimer() {
-        UI.Instance.ShowCountDown(_time);
-        yield return new WaitForSeconds(1f);
-        _time--;
-        
-        if (_time <= 0) {
+        if (!_finalCloseDown) {
             UI.Instance.ShowCountDown(_time);
-           RestartGame();
+            yield return new WaitForSeconds(1f);
+            _time--;
+        
+            if (_time <= 0) {
+                UI.Instance.ShowCountDown(_time);
+                RestartGame();
+            }
+            else {
+                StartCoroutine(OneSecondTimer());
+            }
         }
-        else {
-            StartCoroutine(OneSecondTimer());
-        }
+        
+     
         
     }
     private void OnTriggerEnter(Collider other) {
@@ -70,8 +74,9 @@ public class ColliderDetection : MonoBehaviour {
             UI.Instance.ShowGuide("Thank god. I found it. Now I can pass out in peace", 2f, 0f);
            
             DOTween.To(() => 0f, animatedValue => {
+                    Debug.Log($"XXX animte {animatedValue}");
                     PostProcessing.Instance.Vignette(animatedValue);
-                }, 1f, 8f)
+                }, 1f, 6f)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => {
                     BootController.Instance.RestartGame();
