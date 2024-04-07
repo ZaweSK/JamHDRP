@@ -21,7 +21,7 @@ public class ColliderDetection : MonoBehaviour {
     private Tween? _lensDistortionTween;
     
     private Tween? _hueShiftTween;
-    
+
     private readonly List<string> _alreadyTriggered = new List<string>();
     private void OnDestroy() {
         
@@ -34,6 +34,8 @@ public class ColliderDetection : MonoBehaviour {
     private void RestartGame() {
         BootController.Instance.RestartGame();
     }
+    
+    private bool _finalCloseDown = false;
 
     IEnumerator OneSecondTimer() {
         UI.Instance.ShowCountDown(_time);
@@ -52,12 +54,29 @@ public class ColliderDetection : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         
         if (other.CompareTag("phoneZone")) {
-            Debug.Log($"XXX phoneZone");
-            
-            UI.Instance.ShowGuide("The phone is on stage. I must get to it before I shit my pants", 1f, 0f);
+            UI.Instance.ShowGuide("The phone is on stage. Hurry up!", 1f, 0f);
             // UI.Instance.ShowGuide("Hurry ! The poop is near", 1f, 10f);
             // UI.Instance.ShowGuide("Sweet lord in heaven", 1f, 30);
             StartCoroutine(OneSecondTimer());
+            return;
+        }
+        
+        if (other.CompareTag("complete")) {
+            if (_finalCloseDown) {
+                return;
+            }
+            _finalCloseDown = true;
+          
+            UI.Instance.ShowGuide("Thank god. I found it. Now I can pass out in peace", 2f, 0f);
+           
+            DOTween.To(() => 0f, animatedValue => {
+                    PostProcessing.Instance.Vignette(animatedValue);
+                }, 1f, 8f)
+                .SetEase(Ease.Linear)
+                .OnComplete(() => {
+                    BootController.Instance.RestartGame();
+                });
+            
             return;
         }
         

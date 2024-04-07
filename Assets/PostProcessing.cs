@@ -31,6 +31,10 @@ public class PostProcessing : MonoBehaviour {
         if (_volume.profile.TryGet<ColorAdjustments>(out var colorAdjustments)) {
             _colorAdjustments = colorAdjustments;
         }
+        
+        if (_volume.profile.TryGet<Vignette>(out var vignette)) {
+            _vignette = vignette;
+        }
     }
 
     [SerializeField]
@@ -39,9 +43,15 @@ public class PostProcessing : MonoBehaviour {
     private ChromaticAberration _chromaticAberration;
     private LensDistortion _lensDistortion;
     private ColorAdjustments _colorAdjustments;
+    private Vignette _vignette;
     
     public void ChromaticAberration(float value) {
         _chromaticAberration.intensity.value = value;
+    }
+    
+    
+    public void Vignette(float value) {
+        _vignette.intensity.value = value;
     }
     
     public void LensDistortion(float value) {

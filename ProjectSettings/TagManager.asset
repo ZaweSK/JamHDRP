@@ -9,6 +9,7 @@ TagManager:
   - zone3
   - zone4
   - phoneZone
+  - complete
   layers:
   - Default
   - TransparentFX
