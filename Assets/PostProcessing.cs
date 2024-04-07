@@ -42,4 +42,9 @@ public class PostProcessing : MonoBehaviour {
     public void LensDistortion(float value) {
         _lensDistortion.intensity.value = value;
     }
+    
+    public void ResetToDefault() {
+        PostProcessing.Instance.ChromaticAberration(0.3f);
+        PostProcessing.Instance.LensDistortion(0f);
+    }
 }

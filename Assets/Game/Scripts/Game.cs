@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Scenes.Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -55,7 +56,31 @@ public class Game : MonoBehaviour {
         }
 
         public static Game Instance => _instance;
+
+
+        public void ApplyZoneConfig(ZoneConfig zoneConfig) {
+            Debug.Log($"XXX Zone {zoneConfig.Id}");
+                Game.Instance.ZmenTlacitka = zoneConfig.ZmenTlacitka;
+                Game.Instance.VariantZmenyTlacitok = zoneConfig.VariantZmenyTlacitok;
+                Game.Instance.ZmenTlacitkaKedStojis = zoneConfig.ZmenTlacitkaKedStojis;
+                Game.Instance.ZmenTlacitkaPoCase = zoneConfig.ZmenTlacitkaPoCase;
         
+                Game.Instance.TocenieHlavy = zoneConfig.TocenieHlavy;
+                Game.Instance.AkoMocTaToci = zoneConfig.AkoMocTaToci;
+                Game.Instance.DlzkaJednohoTocenia = zoneConfig.DlzkaJednohoTocenia;
+        
+                Game.Instance.ZanasanieDoStrany = zoneConfig.ZanasanieDoStrany;
+                Game.Instance.AkoMocTaZanasa = zoneConfig.AkoMocTaZanasa;
+                Game.Instance.DlzkaJednehoZanosuDoStrany = zoneConfig.DlzkaJednehoZanosuDoStrany;
+
+                // TODO : - 
+                // var drunkSettings = Drunk.GetSettings();
+                // drunkSettings.drunkenness = zoneConfig.Drunkenness;
+                //
+                // var blurSettings = Blurry.GetSettings();
+                // blurSettings.strength = zoneConfig.Blurr;
+            
+        }
     
 }
 

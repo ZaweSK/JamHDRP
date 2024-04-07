@@ -1,3 +1,4 @@
+using Scenes.Scripts;
 using UnityEngine;
 
 public class TheFirstHit : MonoBehaviour {
@@ -5,8 +6,20 @@ public class TheFirstHit : MonoBehaviour {
     private bool _firstHitDone;
     private float _currentDuration = 0f;
     private float _duration = 4f;
+
+    [SerializeField]
+    private ZoneConfig _config;
+    
+    void Start() {
+        Game.Instance.ApplyZoneConfig(_config);
+        
+        Guide.Instance.ShowGuide("This is bad. I need to find my phone", 1f, 0.5f);
+    }
     
     void Update() {
+        if (_firstHitDone) {
+            return;
+        }
         
         _currentDuration += Time.deltaTime;
         var normalizedDuration = _currentDuration / _duration;
@@ -17,8 +30,7 @@ public class TheFirstHit : MonoBehaviour {
         
         if (normalizedDuration >= 1f) {
             _firstHitDone = true;
-            PostProcessing.Instance.ChromaticAberration(0.3f);
-            PostProcessing.Instance.LensDistortion(0f);
+            PostProcessing.Instance.ResetToDefault();
         }
     }
 }

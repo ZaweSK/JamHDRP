@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f33795a0e184ffba085d60dd6509471, type: 3}
-  m_Name: Zone1
+  m_Name: Default
   m_EditorClassIdentifier: 
-  Id: zone1
-  ZmenTlacitka: 1
-  VariantZmenyTlacitok: 1
+  Id: default
+  ZmenTlacitka: 0
+  VariantZmenyTlacitok: 0
   ZmenTlacitkaKedStojis: 0
   ZmenTlacitkaPoCase: 0
   TocenieHlavy: 1
-  AkoMocTaToci: 0.05
+  AkoMocTaToci: 0.0001
   DlzkaJednohoTocenia: 1
-  ZanasanieDoStrany: 1
-  AkoMocTaZanasa: 0.8
-  DlzkaJednehoZanosuDoStrany: 2
+  ZanasanieDoStrany: 0
+  AkoMocTaZanasa: 0.1
+  DlzkaJednehoZanosuDoStrany: 3
   Drunkenness: 0.1
   Blurr: 0.3
